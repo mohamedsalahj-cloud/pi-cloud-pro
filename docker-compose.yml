@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  pi-cloud-app:
+    build: .
+    container_name: pi-cloud-server
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - ADMIN_PASSWORD=ciat  # غيّر كلمة مرور المشرف هنا
+    volumes:
+      - ./data/uploads:/app/uploads   # مجلد حفظ البرامج المرفوعة على السيرفر
+      - ./data/db:/app/db             # مجلد حفظ قاعدة البيانات
